@@ -13,9 +13,11 @@ buttons.forEach((item) => {
     } else if (display.innerText == "" && item.id == "equal") {
       display.innerText = "Empty!";
       setTimeout(() => (display.innerText = ""), 2000);
-    } else {
+    } 
+    else {
       display.innerText += item.id;
     }
+
   };
 });
 
@@ -25,6 +27,14 @@ const toggleIcon = document.querySelector(".toggler-icon");
 let isDark = true;
 themeToggleBtn.onclick = () => {
   calculator.classList.toggle("dark");
+  toggleIcon.classList.toggle("fa-sun");
+  toggleIcon.classList.toggle("fa-moon");
   themeToggleBtn.classList.toggle("active");
   isDark = !isDark;
+  if (isDark) {
+    localStorage.setItem("theme", "dark");
+  }
+  if (!isDark) {
+    localStorage.setItem("theme", "light");
+  }
 };
